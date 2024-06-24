@@ -1,0 +1,38 @@
+#include <winver.h>
+#include "date_converter.h"
+
+#define STR(s) #s
+#define DATE_CONVERTER_WIN_VER(w, x, y, z) STR(w) "." STR(x) "." STR(y) "." STR(z)
+#define DC_STR_CONCAT(a, b, c) a STR(b) c
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     DATE_CONVERTER_VER_MAJOR, DATE_CONVERTER_VER_MINOR, DATE_CONVERTER_VER_PATCH, 0
+PRODUCTVERSION  DATE_CONVERTER_VER_MAJOR, DATE_CONVERTER_VER_MINOR, DATE_CONVERTER_VER_PATCH, 0
+
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "Comments",         "Written by Aboutaleb Roshan. This library is in the public domain."
+            VALUE "CompanyName",      "Rosybit (https://www.rosybit.com)"
+            VALUE "FileDescription",  "Date Converter Library"
+            VALUE "FileVersion",      DATE_CONVERTER_WIN_VER(DATE_CONVERTER_VER_MAJOR, DATE_CONVERTER_VER_MINOR, DATE_CONVERTER_VER_PATCH, 0)
+            VALUE "InternalName",     "libdateconv"
+            VALUE "OriginalFilename", DC_STR_CONCAT("libdateconv-", DATE_CONVERTER_VER_MAJOR, ".dll")
+            VALUE "ProductName",      "libdateconv"
+            VALUE "ProductVersion",   DATE_CONVERTER_WIN_VER(DATE_CONVERTER_VER_MAJOR, DATE_CONVERTER_VER_MINOR, DATE_CONVERTER_VER_PATCH, 0)
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        /* The following line should only be modified for localized versions.     */
+        /* It consists of any number of WORD,WORD pairs, with each pair           */
+        /* describing a language,codepage combination supported by the file.      */
+        /*                                                                        */
+        /* For example, a file might have values "0x409,1252" indicating that it  */
+        /* supports English language (0x409) in the Windows ANSI codepage (1252). */
+        VALUE "Translation", 0x409, 1252
+    END
+END
